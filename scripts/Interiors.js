@@ -3,6 +3,9 @@ import { getInterior } from "./database.js";
 document.addEventListener(
     "change",
     (event) => {
+        if (event.target.name === "interior") {
+            window.alert(`User chose interior ${event.target.value}`)
+        }
     }
 )
 
@@ -11,7 +14,7 @@ export const Interiors = () => {
     let html = "<ul>"
 
     const listItems = interiors.map(interior => {
-        return `<li><input type="radio" name="style" value="${interior.id}" />${interior.interiorType}</li>`
+        return `<li><input type="radio" name="interior" value="${interior.id}" />${interior.interiorType}</li>`
     })
 
     html += listItems.join("")
