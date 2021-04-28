@@ -1,5 +1,11 @@
 import { getWheels } from "./database.js";
 
+document.addEventListener(
+    "change",
+    (event) => {
+    }
+)
+
 export const Wheels = () => {
     const wheels = getWheels()
     let html = "<ul>"

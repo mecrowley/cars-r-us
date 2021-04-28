@@ -1,5 +1,11 @@
 import { getTechnology } from "./database.js";
 
+document.addEventListener(
+    "change",
+    (event) => {
+    }
+)
+
 export const Technology = () => {
     const techPackages = getTechnology()
     let html = "<ul>"

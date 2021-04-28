@@ -1,5 +1,11 @@
 import { getInterior } from "./database.js";
 
+document.addEventListener(
+    "change",
+    (event) => {
+    }
+)
+
 export const Interiors = () => {
     const interiors = getInterior()
     let html = "<ul>"

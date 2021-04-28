@@ -1,7 +1,7 @@
-import { Interiors } from "./Interiors"
-import { PaintColors } from "./PaintColors"
-import { Technology } from "./Technology"
-import { Wheels } from "./Wheels"
+import { Interiors } from "./Interiors.js"
+import { PaintColors } from "./PaintColors.js"
+import { Technology } from "./Technology.js"
+import { Wheels } from "./Wheels.js"
 
 export const CarsRUs = () => {
     return `

@@ -1,5 +1,11 @@
 import { getColors } from "./database.js";
 
+document.addEventListener(
+    "change",
+    (event) => {
+    }
+)
+
 export const PaintColors = () => {
     const colors = getColors()
     let html = "<ul>"
