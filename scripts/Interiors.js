@@ -1,10 +1,10 @@
-import { getInterior } from "./database.js";
+import { getInterior, setInterior } from "./database.js";
 
 document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "interior") {
-            window.alert(`User chose interior ${event.target.value}`)
+            setInterior(parseInt(event.target.value))
         }
     }
 )

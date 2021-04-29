@@ -23,15 +23,17 @@ const database = {
         { id: 3, wheelType: "18-inch Pair Spoke Silver", price: 2000 },
         { id: 4, wheelType: "18-inch Pair Spoke Black", price: 2500 }
     ],
-    customerOrders: [
+    carOrders: [
         {
             id: 1,
             paintId: 3,
             interiorId: 4,
             technologyId: 4,
-            wheelId: 4
+            wheelId: 4,
+            timestamp: 1619669783435
         }
-    ]
+    ],
+    orderBuilder: {}
 }
 
 export const getColors = () => {
@@ -51,5 +53,30 @@ export const getWheels = () => {
 }
 
 export const getOrders = () => {
-    return [...database.customerOrders]
+    return [...database.carOrders]
+}
+
+export const setColor = (id) => {
+    database.orderBuilder.paintId = id
+}
+
+export const setInterior = (id) => {
+    database.orderBuilder.interiorId = id
+}
+
+export const setTechnology = (id) => {
+    database.orderBuilder.technologyId = id
+}
+
+export const setWheels = (id) => {
+    database.orderBuilder.wheelId = id
+}
+
+export const addCustomerOrder = () => {
+    const newOrder = {...database.orderBuilder}
+    newOrder.id = [...database.carOrders].pop().id + 1
+    newOrder.timestamp = Date.now()
+    database.carOrders.push(newOrder)
+    database.orderBuilder = {}
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
