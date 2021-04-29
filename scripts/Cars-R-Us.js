@@ -1,5 +1,6 @@
 import { addCustomerOrder } from "./database.js"
 import { Interiors } from "./Interiors.js"
+import { Models } from "./Models.js"
 import { Orders } from "./Orders.js"
 import { PaintColors } from "./PaintColors.js"
 import { Technology } from "./Technology.js"
@@ -33,7 +34,9 @@ export const CarsRUs = () => {
                 ${Wheels()}
             </section>
         </article>
-
+        <article class="model__types">
+        ${Models()}
+        </article>
         <article>
             <button id="orderButton">Create Order</button>
         </article>

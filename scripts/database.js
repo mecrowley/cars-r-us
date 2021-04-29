@@ -23,15 +23,13 @@ const database = {
         { id: 3, wheelType: "18-inch Pair Spoke Silver", price: 2000 },
         { id: 4, wheelType: "18-inch Pair Spoke Black", price: 2500 }
     ],
+    models: [
+        {id: 1, modelType: "Car", priceIncreaseFactor: 1},
+        {id: 2, modelType: "SUV", priceIncreaseFactor: 1.5},
+        {id: 3, modelType: "Truck", priceIncreaseFactor: 2.25}
+    ],
     carOrders: [
-        {
-            id: 1,
-            colorId: 3,
-            interiorId: 4,
-            technologyId: 4,
-            wheelId: 4,
-            timestamp: 1619669783435
-        }
+        
     ],
     orderBuilder: {}
 }
@@ -50,6 +48,10 @@ export const getTechnology = () => {
 
 export const getWheels = () => {
     return [...database.wheels]
+}
+
+export const getModels = () => {
+    return [...database.models]
 }
 
 export const getOrders = () => {
@@ -72,9 +74,13 @@ export const setWheels = (id) => {
     database.orderBuilder.wheelId = id
 }
 
+export const setModel = (id) => {
+    database.orderBuilder.modelId = id
+}
+
 export const addCustomerOrder = () => {
     const newOrder = {...database.orderBuilder}
-    newOrder.id = [...database.carOrders].pop().id + 1
+    newOrder.id = [...database.carOrders].length + 1
     newOrder.timestamp = Date.now()
     database.carOrders.push(newOrder)
     database.orderBuilder = {}
