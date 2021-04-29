@@ -26,7 +26,7 @@ const database = {
     carOrders: [
         {
             id: 1,
-            paintId: 3,
+            colorId: 3,
             interiorId: 4,
             technologyId: 4,
             wheelId: 4,
@@ -57,7 +57,7 @@ export const getOrders = () => {
 }
 
 export const setColor = (id) => {
-    database.orderBuilder.paintId = id
+    database.orderBuilder.colorId = id
 }
 
 export const setInterior = (id) => {
