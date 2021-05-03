@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@600&display=swap");
+
+body, button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2 {
+    font-family: 'Nunito', sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0.5rem;
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.options {
+    margin: 0.75rem;
+    padding: 1rem;
+    border: solid black 2px;
+}
+
+.model__types {
+    display: flex;
+}

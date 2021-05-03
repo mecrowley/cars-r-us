@@ -8,7 +8,10 @@ import { Wheels } from "./Wheels.js"
 
 document.addEventListener("click", event => {
     if (event.target.id === "orderButton") {
-        addCustomerOrder()
+        const newOrder = addCustomerOrder()
+        if (!newOrder) {
+            window.alert("Order incomplete.  Please select from each choice.")
+        }
     }
 })
 

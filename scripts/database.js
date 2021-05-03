@@ -24,12 +24,12 @@ const database = {
         { id: 4, wheelType: "18-inch Pair Spoke Black", price: 2500 }
     ],
     models: [
-        {id: 1, modelType: "Car", priceIncreaseFactor: 1},
-        {id: 2, modelType: "SUV", priceIncreaseFactor: 1.5},
-        {id: 3, modelType: "Truck", priceIncreaseFactor: 2.25}
+        { id: 1, modelType: "Car", priceIncreaseFactor: 1 },
+        { id: 2, modelType: "SUV", priceIncreaseFactor: 1.5 },
+        { id: 3, modelType: "Truck", priceIncreaseFactor: 2.25 }
     ],
     carOrders: [
-        
+
     ],
     orderBuilder: {}
 }
@@ -58,6 +58,10 @@ export const getOrders = () => {
     return [...database.carOrders]
 }
 
+export const getOrderBuilder = () => {
+    return {...database.orderBuilder}
+}
+
 export const setColor = (id) => {
     database.orderBuilder.colorId = id
 }
@@ -79,10 +83,19 @@ export const setModel = (id) => {
 }
 
 export const addCustomerOrder = () => {
-    const newOrder = {...database.orderBuilder}
-    newOrder.id = [...database.carOrders].length + 1
-    newOrder.timestamp = Date.now()
-    database.carOrders.push(newOrder)
-    database.orderBuilder = {}
-    document.dispatchEvent(new CustomEvent("stateChanged"))
+    if ("colorId" in database.orderBuilder &&
+        "interiorId" in database.orderBuilder &&
+        "technologyId" in database.orderBuilder &&
+        "wheelId" in database.orderBuilder &&
+        "modelId" in database.orderBuilder) {
+
+        const newOrder = { ...database.orderBuilder }
+        newOrder.id = [...database.carOrders].length + 1
+        newOrder.timestamp = Date.now()
+        database.carOrders.push(newOrder)
+        database.orderBuilder = {}
+        document.dispatchEvent(new CustomEvent("stateChanged"))
+        return true
+    }
+    return false
 }
