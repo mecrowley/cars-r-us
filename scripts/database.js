@@ -90,7 +90,7 @@ export const addCustomerOrder = () => {
         "modelId" in database.orderBuilder) {
 
         const newOrder = { ...database.orderBuilder }
-        newOrder.id = [...database.carOrders].length + 1
+        newOrder.id = (database.carOrders.length > 0 ? [...database.carOrders.id].pop() + 1 : 1)
         newOrder.timestamp = Date.now()
         database.carOrders.push(newOrder)
         database.orderBuilder = {}
